@@ -33,19 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // 裁剪超大分辨率的图片
-//        let hugeImage = UIImage(contentsOfFile: Bundle.main.path(forResource: ImageFilename, ofType: nil)!)
-//        var cgImage: CGImage = CGImage(width: <#T##Int#>,
-//                                       height: <#T##Int#>,
-//                                       bitsPerComponent: <#T##Int#>,
-//                                       bitsPerPixel: <#T##Int#>,
-//                                       bytesPerRow: <#T##Int#>,
-//                                       space: <#T##CGColorSpace#>,
-//                                       bitmapInfo: <#T##CGBitmapInfo#>,
-//                                       provider: <#T##CGDataProvider#>,
-//                                       decode: <#T##UnsafePointer<CGFloat>?#>,
-//                                       shouldInterpolate: <#T##Bool#>,
-//                                       intent: <#T##CGColorRenderingIntent#>)
-        
+        let size = CGSize(width: defaultTileSize, height: defaultTileSize)
+        UIImage.saveTileOfSize(size, name: ImageFilename)
         
         return true
     }

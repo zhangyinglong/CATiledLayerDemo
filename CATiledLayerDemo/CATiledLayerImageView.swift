@@ -11,11 +11,9 @@ import QuartzCore
 
 class CATiledLayerImageView: UIView {
 
-    public var image: UIImage!
+    let cachesPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as String
     
-    private var imageScale: CGFloat = 0
-    
-    private var imageRect: CGRect = .zero
+    private var name: String!
     
     override open class var layerClass: Swift.AnyClass {
         get {
@@ -27,11 +25,9 @@ class CATiledLayerImageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(frame: CGRect, image: UIImage, scale: CGFloat) {
+    public init(frame: CGRect, name: String) {
         super.init(frame:frame)
-        self.image = image
-        self.imageRect = CGRect(x: 0, y: 0, width: image.cgImage!.width, height: image.cgImage!.height)
-        self.imageScale = scale
+        self.name = name
         
         let tiledLayer: CATiledLayer = self.layer as! CATiledLayer
         // levelsOfDetail and levelsOfDetailBias determine how
@@ -39,77 +35,37 @@ class CATiledLayerImageView: UIView {
         // only matters while the view is zooming, since once the
         // the view is done zooming a new TiledImageView is created
         // at the correct size and scale.
+        tiledLayer.contentsScale = UIScreen.main.scale
         tiledLayer.levelsOfDetail = 4
         tiledLayer.levelsOfDetailBias = 4
         tiledLayer.tileSize = CGSize(width: defaultTileSize, height: defaultTileSize)
     }
     
-//    override func draw(_ rect: CGRect) {
-//        let context: CGContext = UIGraphicsGetCurrentContext()!
-//        context.saveGState()
-//        context.scaleBy(x: imageScale, y: imageScale)
-//        context.draw(image.cgImage!, in: imageRect)
-//        context.restoreGState()
-//    }
-    
     override func draw(_ rect: CGRect) {
-        let context: CGContext = UIGraphicsGetCurrentContext()!
-        context.saveGState()
-        context.scaleBy(x: imageScale, y: imageScale)
-        context.draw(image.cgImage!, in: imageRect)
-        context.restoreGState()
         
-//        let scale = context.ctm.a
-//        let tiledLayer: CATiledLayer = self.layer as! CATiledLayer
-//
-//        var tileSize: CGSize = tiledLayer.tileSize
-//        tileSize.width /= scale
-//        tileSize.height /= scale
-//
-//        
-//        let firstCol = Int(rect.minX / tileSize.width)
-//        let lastCol = Int(rect.maxX / tileSize.width)
-//        let firstRow = Int(rect.minY / tileSize.height)
-//        let lastRow = Int(rect.maxY / tileSize.height)
-//
-//        for row in firstRow ..< lastRow {
-//            for col in firstCol ..< lastCol {
-//                var tileRect: CGRect = CGRect(x: tileSize.width * CGFloat(col),
-//                                              y: tileSize.height * CGFloat(row),
-//                                              width: tileSize.width,
-//                                              height: tileSize.height);
-//                
-//                // if the tile would stick outside of our bounds, we need to truncate it so as to avoid
-//                // stretching out the partial tiles at the right and bottom edges
-//                tileRect = self.bounds.intersection(tileRect);
-//                
-//                let tile = self.tileForScale(scale: scale, row: row, col: col,
-//                                             width: tileRect.size.width,
-//                                             height: tileRect.size.height)
-//                tile.draw(in: tileRect)
-//            }
-//        }
+        let firstColumn = Int(rect.minX / defaultTileSize)
+        let lastColumn = Int(rect.maxX / defaultTileSize)
+        let firstRow = Int(rect.minY / defaultTileSize)
+        let lastRow = Int(rect.maxY / defaultTileSize)
+        
+        for row in firstRow...lastRow {
+            for column in firstColumn...lastColumn {
+                if let tile = imageForTileAtColumn(column, row: row) {
+                    let x = defaultTileSize * CGFloat(column)
+                    let y = defaultTileSize * CGFloat(row)
+                    let point = CGPoint(x: x, y: y)
+                    let size = CGSize(width: defaultTileSize, height: defaultTileSize)
+                    var tileRect = CGRect(origin: point, size: size)
+                    tileRect = bounds.intersection(tileRect)
+                    tile.draw(in: tileRect)
+                }
+            }
+        }
     }
 
-    func tileForScale(scale: CGFloat, row: Int, col: Int, width: CGFloat, height: CGFloat) -> UIImage {
-        let x = CGFloat(row) * defaultTileSize
-        let y = CGFloat(col) * defaultTileSize
-        return UIImage(cgImage: (image.cgImage?.cropping(to: CGRect(x: x, y: y, width: width, height: height)))!)
+    func imageForTileAtColumn(_ column: Int, row: Int) -> UIImage? {
+        let filePath = "\(cachesPath)/\(name)_\(column)_\(row)"
+        return UIImage(contentsOfFile: filePath)
     }
-//
-//    - (UIImage *)tileForScale:(CGFloat)scale row:(int)row col:(int)col {
-//    
-//    // we use "imageWithContentsOfFile:" instead of "imageNamed:" here because we don't want UIImage to cache our tiles
-//    int scaleFactor = (int)(scale * 100);
-//    NSString *tilename = [NSString stringWithFormat:@"1930-%d-%d-%d", scaleFactor, col+1, row+1];
-//    NSLog(@"Tilename = %@", tilename);
-//    
-//    NSString *path = [[NSBundle mainBundle] pathForResource:tilename ofType:@"png" inDirectory:@"1930pngs"];
-//    
-//    NSLog(@"Path = %@", path);
-//    
-//    UIImage *image = [UIImage imageWithContentsOfFile:path];
-//    return image;
-//    }
 
 }

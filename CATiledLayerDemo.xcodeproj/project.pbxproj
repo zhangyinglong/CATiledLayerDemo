@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC134D7B1E2404800072A015 /* UIImage+TileCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC134D7A1E2404800072A015 /* UIImage+TileCutter.swift */; };
 		FC9515F81E1E9C5400C2DBF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9515F71E1E9C5400C2DBF8 /* AppDelegate.swift */; };
-		FC9515FA1E1E9C5400C2DBF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9515F91E1E9C5400C2DBF8 /* ViewController.swift */; };
 		FC9515FD1E1E9C5400C2DBF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9515FB1E1E9C5400C2DBF8 /* Main.storyboard */; };
 		FC9515FF1E1E9C5400C2DBF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9515FE1E1E9C5400C2DBF8 /* Assets.xcassets */; };
 		FC9516021E1E9C5400C2DBF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9516001E1E9C5400C2DBF8 /* LaunchScreen.storyboard */; };
 		FC95160D1E1E9C5400C2DBF8 /* CATiledLayerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC95160C1E1E9C5400C2DBF8 /* CATiledLayerDemoTests.swift */; };
 		FC9516181E1E9C5400C2DBF8 /* CATiledLayerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9516171E1E9C5400C2DBF8 /* CATiledLayerDemoUITests.swift */; };
 		FC9516261E1E9D3700C2DBF8 /* CATiledLayerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9516251E1E9D3700C2DBF8 /* CATiledLayerImageView.swift */; };
-		FC95162A1E1EA3E900C2DBF8 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9516291E1EA3E900C2DBF8 /* ImageScrollView.swift */; };
 		FC95162E1E1F4A1400C2DBF8 /* original.png in Resources */ = {isa = PBXBuildFile; fileRef = FC95162D1E1F4A1400C2DBF8 /* original.png */; };
 		FC9516301E1F4BDA00C2DBF8 /* large_leaves_70mp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC95162F1E1F4BDA00C2DBF8 /* large_leaves_70mp.jpg */; };
 		FC9516801E1F8A9B00C2DBF8 /* ScrollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC95167F1E1F8A9B00C2DBF8 /* ScrollerViewController.swift */; };
-		FC9516821E1FA83900C2DBF8 /* ScrollImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9516811E1FA83900C2DBF8 /* ScrollImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC134D7A1E2404800072A015 /* UIImage+TileCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TileCutter.swift"; sourceTree = "<group>"; };
 		FC9515F41E1E9C5400C2DBF8 /* CATiledLayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATiledLayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9515F71E1E9C5400C2DBF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC9515F91E1E9C5400C2DBF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC9515FC1E1E9C5400C2DBF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC9515FE1E1E9C5400C2DBF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC9516011E1E9C5400C2DBF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,12 +52,10 @@
 		FC9516171E1E9C5400C2DBF8 /* CATiledLayerDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATiledLayerDemoUITests.swift; sourceTree = "<group>"; };
 		FC9516191E1E9C5400C2DBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC9516251E1E9D3700C2DBF8 /* CATiledLayerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATiledLayerImageView.swift; sourceTree = "<group>"; };
-		FC9516291E1EA3E900C2DBF8 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		FC95162D1E1F4A1400C2DBF8 /* original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = original.png; sourceTree = "<group>"; };
 		FC95162F1E1F4BDA00C2DBF8 /* large_leaves_70mp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = large_leaves_70mp.jpg; sourceTree = "<group>"; };
 		FC9516351E1F63C000C2DBF8 /* YYWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYWebImage.framework; path = Carthage/Build/iOS/YYWebImage.framework; sourceTree = "<group>"; };
 		FC95167F1E1F8A9B00C2DBF8 /* ScrollerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollerViewController.swift; sourceTree = "<group>"; };
-		FC9516811E1FA83900C2DBF8 /* ScrollImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,15 +110,13 @@
 				FC95162F1E1F4BDA00C2DBF8 /* large_leaves_70mp.jpg */,
 				FC95162D1E1F4A1400C2DBF8 /* original.png */,
 				FC9515F71E1E9C5400C2DBF8 /* AppDelegate.swift */,
-				FC9515F91E1E9C5400C2DBF8 /* ViewController.swift */,
 				FC9516251E1E9D3700C2DBF8 /* CATiledLayerImageView.swift */,
+				FC95167F1E1F8A9B00C2DBF8 /* ScrollerViewController.swift */,
+				FC134D7A1E2404800072A015 /* UIImage+TileCutter.swift */,
 				FC9515FB1E1E9C5400C2DBF8 /* Main.storyboard */,
 				FC9515FE1E1E9C5400C2DBF8 /* Assets.xcassets */,
 				FC9516001E1E9C5400C2DBF8 /* LaunchScreen.storyboard */,
 				FC9516031E1E9C5400C2DBF8 /* Info.plist */,
-				FC9516291E1EA3E900C2DBF8 /* ImageScrollView.swift */,
-				FC95167F1E1F8A9B00C2DBF8 /* ScrollerViewController.swift */,
-				FC9516811E1FA83900C2DBF8 /* ScrollImageView.swift */,
 			);
 			path = CATiledLayerDemo;
 			sourceTree = "<group>";
@@ -311,10 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9515FA1E1E9C5400C2DBF8 /* ViewController.swift in Sources */,
-				FC9516821E1FA83900C2DBF8 /* ScrollImageView.swift in Sources */,
-				FC95162A1E1EA3E900C2DBF8 /* ImageScrollView.swift in Sources */,
 				FC9515F81E1E9C5400C2DBF8 /* AppDelegate.swift in Sources */,
+				FC134D7B1E2404800072A015 /* UIImage+TileCutter.swift in Sources */,
 				FC9516261E1E9D3700C2DBF8 /* CATiledLayerImageView.swift in Sources */,
 				FC9516801E1F8A9B00C2DBF8 /* ScrollerViewController.swift in Sources */,
 			);
